@@ -22,6 +22,15 @@ jobs:
           wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
           sudo apt-get update
           sudo apt-get install -y llvm-12-dev libclang-12-dev clang-12
+      
+      - name: Set LLVM 12 Paths
+        run: |
+          echo "LLVM_CONFIG=/usr/bin/llvm-config-12" >> $GITHUB_ENV
+          echo "CC=clang-12" >> $GITHUB_ENV
+          echo "CXX=clang++-12" >> $GITHUB_ENV
+          echo "C_INCLUDE_PATH=/usr/lib/llvm-12/include:$C_INCLUDE_PATH" >> $GITHUB_ENV
+          echo "CPLUS_INCLUDE_PATH=/usr/lib/llvm-12/include:$CPLUS_INCLUDE_PATH" >> $GITHUB_ENV
+          echo "PATH=/usr/lib/llvm-12/bin:$PATH" >> $GITHUB_ENV
 
       - name: Install deps
         run: |
