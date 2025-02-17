@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SUPPORTED_LLVM_VERSION=("13" "12")
+SUPPORTED_LLVM_VERSION=("12" "13")
 
 find_llvm_config() {
   LLVM_FOUND=0
